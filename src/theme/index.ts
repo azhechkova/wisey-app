@@ -16,6 +16,9 @@ const theme = createTheme({
     warning: {
       main: '#FF9F1C',
     },
+    text: {
+      primary: '#011627',
+    },
   },
 });
 
