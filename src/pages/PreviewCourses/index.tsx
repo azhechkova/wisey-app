@@ -3,11 +3,11 @@ import React, { useMemo, useState } from 'react';
 
 import { useLoaderData } from 'react-router-dom';
 import useStyles from './styles';
-import { CourseList } from '../../components';
+import { CourseList, Loading } from '../../components';
 import MainLayout from '../../layouts/MainLayout';
 
 import { CourseType } from '../../types';
-import getCourses from '../../api/services/courses';
+import { getCourses } from '../../api/services/courses';
 
 export const coursesLoader = async (): Promise<CourseType[]> => {
   const { data } = await getCourses();
@@ -30,6 +30,10 @@ const PreviewCourses = (): JSX.Element => {
     () => (courses ? courses.slice(0, limit) : []),
     [limit, courses],
   );
+
+  if (!courses) {
+    return <Loading />;
+  }
 
   return (
     <MainLayout>

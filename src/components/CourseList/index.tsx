@@ -3,7 +3,8 @@ import React from 'react';
 
 import useStyles from './styles';
 import { CourseType } from '../../types';
-import { Course } from '..';
+
+import Course from '../Course';
 
 interface CourseListProps {
   courses: CourseType[];

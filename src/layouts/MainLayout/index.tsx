@@ -1,4 +1,4 @@
-import { Box, CircularProgress } from '@mui/material';
+import { Box } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import useStyles from './styles';
 import getToken from '../../api/services/token';
@@ -6,6 +6,7 @@ import {
   getStorageToken,
   setStorageToken,
 } from '../../utils/tokenLocalStorage';
+import { Loading } from '../../components';
 
 interface MainLayoutProps {
   children: React.ReactNode;
@@ -38,11 +39,7 @@ const MainLayout = ({ children }: MainLayoutProps): JSX.Element => {
   }, []);
 
   if (isLoading) {
-    return (
-      <Box className={classes.loadingWrap}>
-        <CircularProgress color="primary" size={100} />
-      </Box>
-    );
+    return <Loading />;
   }
 
   return <Box className={classes.root}>{children}</Box>;
