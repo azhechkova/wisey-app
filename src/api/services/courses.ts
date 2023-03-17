@@ -1,15 +1,10 @@
 import { AxiosResponse } from 'axios';
-import { getStorageToken } from '../../utils/tokenLocalStorage';
 import client from '../client';
 
-const getCourses = (): Promise<AxiosResponse> => {
-  const token = getStorageToken();
-
-  return client.get('/core/preview-courses?limit=2', {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
+export const getCourses = (): Promise<AxiosResponse> => {
+  return client.get('/core/preview-courses');
 };
 
-export default getCourses;
+export const getCourse = (id: string): Promise<AxiosResponse> => {
+  return client.get(`/core/preview-courses/${id}`);
+};

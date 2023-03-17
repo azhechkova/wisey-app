@@ -31,7 +31,8 @@
       "@typescript-eslint",
       "eslint-plugin-prettier",
       "jest",
-      "react"
+      "react",
+      "jsx-a11y"
     ],
     "rules": {
       "prettier/prettier": "error",

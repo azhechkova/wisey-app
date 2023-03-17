@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Course component renders properly 1`] = `
+<div>
+  <div
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-111azgf-MuiPaper-root-MuiCard-root-card"
+  >
+    <video
+      height="198"
+      poster="/cover.webp"
+      width="352"
+    >
+      <source
+        type="application/x-mpegURL"
+      />
+    </video>
+    <div
+      class="MuiCardContent-root css-mman5-MuiCardContent-root-content"
+    >
+      <h2
+        class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom css-h93ljk-MuiTypography-root"
+      >
+        Mock course
+      </h2>
+      <p
+        class="MuiTypography-root MuiTypography-body2 css-1yr8029-MuiTypography-root"
+      >
+        Course description
+      </p>
+      <ul
+        class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
+      >
+        <li
+          class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-ba5xb9-MuiListItem-root-listItem"
+        >
+          Rating: 
+          1
+        </li>
+        <li
+          class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-ba5xb9-MuiListItem-root-listItem"
+        >
+          Lessons: 
+        </li>
+      </ul>
+      <div
+        class="MuiCardActions-root MuiCardActions-spacing css-1t6e9jv-MuiCardActions-root"
+      >
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall css-11qr2p8-MuiButtonBase-root-MuiButton-root"
+          tabindex="0"
+          type="button"
+        >
+          Learn More
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+      <div
+        class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-15d77bz-MuiChip-root-tag"
+      >
+        <span
+          class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
+        >
+          tag
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,15 +1,15 @@
-import constants from '../constants';
+import { PROJECT_NAME } from '../constants';
 
 const setStorageToken = (token: string): void => {
-  localStorage.setItem(constants.PROJECT_NAME, token);
+  localStorage.setItem(PROJECT_NAME, token);
 };
 
 const getStorageToken = (): string | null => {
-  return localStorage.getItem(constants.PROJECT_NAME);
+  return localStorage.getItem(PROJECT_NAME);
 };
 
 const removeStorageToken = (): void => {
-  return localStorage.removeItem(constants.PROJECT_NAME);
+  return localStorage.removeItem(PROJECT_NAME);
 };
 
 export { setStorageToken, getStorageToken, removeStorageToken };
