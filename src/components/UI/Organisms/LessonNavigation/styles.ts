@@ -2,12 +2,7 @@ import { makeStyles } from 'tss-react/mui';
 
 const useStyles = makeStyles()(() => ({
   root: {
-    backgroundColor: 'rgb(246, 246, 247)',
-  },
-  content: {
-    padding: '3em 2em',
-    maxWidth: '1400px',
-    margin: '0 auto',
+    padding: '0 ',
   },
 }));
 

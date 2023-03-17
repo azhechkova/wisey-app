@@ -1,5 +1,5 @@
-import { Button, Typography } from '@mui/material';
-import React, { useMemo, useState } from 'react';
+import { Typography } from '@mui/material';
+import React from 'react';
 
 import { useLoaderData } from 'react-router-dom';
 import useStyles from './styles';
@@ -15,21 +15,9 @@ export const coursesLoader = async (): Promise<CourseType[]> => {
   return data.courses || [];
 };
 
-const COURSES_PER_PAGE = 10;
-
 const PreviewCourses = (): JSX.Element => {
   const { classes } = useStyles();
-  const [limit, setLimit] = useState(COURSES_PER_PAGE);
   const courses = useLoaderData() as CourseType[];
-
-  const onShowMore = (): void => {
-    setLimit(prev => prev + COURSES_PER_PAGE);
-  };
-
-  const filteredList = useMemo(
-    () => (courses ? courses.slice(0, limit) : []),
-    [limit, courses],
-  );
 
   if (!courses) {
     return <Loading />;
@@ -40,10 +28,7 @@ const PreviewCourses = (): JSX.Element => {
       <Typography component="h1" variant="h3" className={classes.title}>
         Explore Courses
       </Typography>
-      <CourseList courses={filteredList as CourseType[]} />
-      {limit < courses?.length && (
-        <Button onClick={onShowMore}>Show more</Button>
-      )}
+      <CourseList courses={courses as CourseType[]} />
     </MainLayout>
   );
 };

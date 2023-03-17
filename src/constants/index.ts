@@ -1,5 +1,6 @@
-const PROJECT_NAME = 'wisey-app';
+export const PROJECT_NAME = 'wisey-app';
 
-export default {
-  PROJECT_NAME,
+export const LESSON_STATUS = {
+  locked: 'locked',
+  unlocked: 'unlocked',
 };

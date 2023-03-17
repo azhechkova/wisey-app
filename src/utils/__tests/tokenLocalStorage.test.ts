@@ -1,5 +1,5 @@
 import * as storageUtils from '../tokenLocalStorage';
-import constants from '../../constants';
+import { PROJECT_NAME } from '../../constants';
 
 describe('setStorageToken util', () => {
   beforeEach(() => {
@@ -11,10 +11,7 @@ describe('setStorageToken util', () => {
 
     storageUtils.setStorageToken(id);
 
-    expect(localStorage.setItem).toHaveBeenCalledWith(
-      constants.PROJECT_NAME,
-      id,
-    );
+    expect(localStorage.setItem).toHaveBeenCalledWith(PROJECT_NAME, id);
   });
 
   test('should add item to localStorage', () => {
@@ -22,7 +19,7 @@ describe('setStorageToken util', () => {
 
     storageUtils.setStorageToken(id);
 
-    expect(localStorage.__STORE__[constants.PROJECT_NAME]).toEqual(id);
+    expect(localStorage.__STORE__[PROJECT_NAME]).toEqual(id);
   });
 
   test('should keep latest updates in localStorage', () => {
@@ -32,7 +29,7 @@ describe('setStorageToken util', () => {
     storageUtils.setStorageToken(id);
     storageUtils.setStorageToken(nextId);
 
-    expect(localStorage.__STORE__[constants.PROJECT_NAME]).toEqual(nextId);
+    expect(localStorage.__STORE__[PROJECT_NAME]).toEqual(nextId);
   });
 });
 
@@ -44,7 +41,7 @@ describe('getStorageToken util', () => {
   test('should return id', () => {
     const id = '1';
 
-    localStorage.setItem(constants.PROJECT_NAME, id);
+    localStorage.setItem(PROJECT_NAME, id);
 
     expect(storageUtils.getStorageToken()).toEqual(id);
   });
@@ -52,18 +49,18 @@ describe('getStorageToken util', () => {
   test('should return undefined', () => {
     const id = '1';
 
-    localStorage.setItem(constants.PROJECT_NAME, id);
+    localStorage.setItem(PROJECT_NAME, id);
     localStorage.clear();
 
-    expect(localStorage.__STORE__[constants.PROJECT_NAME]).toBeUndefined();
+    expect(localStorage.__STORE__[PROJECT_NAME]).toBeUndefined();
   });
 
   test('should return correct id', () => {
     const id = '1';
     const nextId = '2';
 
-    localStorage.setItem(constants.PROJECT_NAME, id);
-    localStorage.setItem(constants.PROJECT_NAME, nextId);
+    localStorage.setItem(PROJECT_NAME, id);
+    localStorage.setItem(PROJECT_NAME, nextId);
 
     expect(storageUtils.getStorageToken()).toEqual(nextId);
   });
@@ -77,9 +74,9 @@ describe('removeToken util', () => {
   test('should remove token', () => {
     const id = '1';
 
-    localStorage.setItem(constants.PROJECT_NAME, id);
+    localStorage.setItem(PROJECT_NAME, id);
     storageUtils.removeStorageToken();
 
-    expect(localStorage.__STORE__[constants.PROJECT_NAME]).toBeUndefined();
+    expect(localStorage.__STORE__[PROJECT_NAME]).toBeUndefined();
   });
 });

@@ -42,7 +42,11 @@ const MainLayout = ({ children }: MainLayoutProps): JSX.Element => {
     return <Loading />;
   }
 
-  return <Box className={classes.root}>{children}</Box>;
+  return (
+    <Box className={classes.root} component="main">
+      <Box className={classes.content}>{children}</Box>
+    </Box>
+  );
 };
 
 export default MainLayout;

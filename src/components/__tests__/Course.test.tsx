@@ -2,7 +2,7 @@ import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { CourseType } from '../../types';
 
-import Course from '../Course';
+import Course from '../UI/Molecules/Course';
 
 const course: CourseType = {
   id: '1',

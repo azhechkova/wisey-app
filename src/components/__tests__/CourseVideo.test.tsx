@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import React from 'react';
-import CourseVideo from '../CourseVideo';
+import CourseVideo from '../UI/Atoms/CourseVideo';
 
 describe('CourseVideo', () => {
   it('renders without crashing', () => {

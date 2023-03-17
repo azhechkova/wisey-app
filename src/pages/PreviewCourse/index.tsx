@@ -1,78 +1,98 @@
-import { Box, Button, List, ListItem, Typography } from '@mui/material';
-import React, { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Box, Button, Typography } from '@mui/material';
+import React, { useEffect, useCallback, useState, useMemo } from 'react';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBackIos';
+import useStyles from './styles';
 import { getCourse } from '../../api/services/courses';
-import { Loading } from '../../components';
-import CourseVideo from '../../components/CourseVideo';
-import Lesson from '../../components/Lesson';
-import MainLayout from '../../layouts/MainLayout';
+import { Loading, LessonNavigation } from '../../components';
 import { CourseType } from '../../types';
+import Lesson from '../../components/UI/Molecules/Lesson';
 
 const PreviewCourse = (): JSX.Element => {
   const [course, setCourse] = useState<CourseType | null>();
   const [isLoading, setIsLoading] = useState(true);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const activeLesson = searchParams.get('lesson');
+
+  const activeLessonObj = useMemo(() => {
+    if (!course) return null;
+    const lesson = course.lessons?.find(item => item.id === activeLesson);
+
+    if (!lesson) return null;
+
+    return lesson;
+  }, [course, activeLesson]);
+
   const { id } = useParams();
   const navigate = useNavigate();
+  const { classes } = useStyles();
 
   const onBack = (): void => {
     navigate('/courses');
   };
 
-  const fetchCourse = async (courseId: string): Promise<void> => {
+  const fetchCourse = useCallback(async (courseId: string): Promise<void> => {
     await getCourse(courseId).then(({ data }) => {
       setCourse(data);
       setIsLoading(false);
     });
+  }, []);
+
+  const onLessonChange = (lessonId: string): void => {
+    if (!course) return;
+    setSearchParams({ lesson: lessonId }, { replace: true });
   };
 
   useEffect(() => {
     if (!id) return;
+
     fetchCourse(id);
-  }, [id]);
+  }, [id, fetchCourse]);
 
   if (isLoading) {
     return <Loading />;
   }
 
   return (
-    <MainLayout>
+    <Box component="main" className={classes.root}>
       <Button onClick={onBack}>
         <ArrowBackIcon />
         Back
       </Button>
       {course && (
         <>
-          <Typography component="h1" variant="h4" marginBottom={2}>
-            {course.title}
-          </Typography>
-          <Typography component="h2" variant="h5" fontWeight={600}>
-            Description
-          </Typography>
-          <Typography component="p" variant="body1" marginBottom={3}>
-            {course.description}
-          </Typography>
-          <CourseVideo controls src={course?.meta?.courseVideoPreview?.link} />
+          <Box className={classes.content} component="section">
+            <LessonNavigation
+              activeLesson={activeLesson}
+              lessons={course.lessons}
+              onLessonChange={onLessonChange}
+            />
+            <Box>
+              <Typography className={classes.courseName}>
+                Course: {course.title}
+              </Typography>
+              <Lesson
+                lesson={activeLessonObj}
+                previewVideo={course.meta?.courseVideoPreview?.link}
+              />
+            </Box>
+          </Box>
           <Box component="section">
             <Typography
-              component="h2"
+              marginTop={4}
+              marginBottom={2}
               variant="h5"
-              marginY={3}
+              component="h3"
               fontWeight={600}
             >
-              Lessons
+              Course description
             </Typography>
-            <List>
-              {course.lessons.map(lesson => (
-                <ListItem key={lesson.id}>
-                  <Lesson lesson={lesson} />
-                </ListItem>
-              ))}
-            </List>
+            <Typography>{course.description}</Typography>
           </Box>
         </>
       )}
-    </MainLayout>
+    </Box>
   );
 };
 
