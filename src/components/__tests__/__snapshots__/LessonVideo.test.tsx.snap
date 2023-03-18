@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LessonVideo renders properly 1`] = `
+<div>
+  <div
+    class="MuiBox-root css-3vegfa-root"
+  >
+    <div
+      class="MuiBox-root css-1xwdhek-info"
+    >
+      <button
+        class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium css-1e6y48t-MuiButtonBase-root-MuiButton-root"
+        tabindex="0"
+        type="button"
+      >
+        Open video in tab
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </button>
+      <p
+        class="MuiTypography-root MuiTypography-body1 css-q87npz-MuiTypography-root-infoText"
+      >
+        A
+         - decrease speed;
+         
+        S
+         - increase speed
+      </p>
+    </div>
+    <video
+      class="css-kptru5-video"
+      controls=""
+      id="video"
+      src="https://example.com/video.mp4"
+    >
+      <track
+        kind="captions"
+      />
+    </video>
+  </div>
+</div>
+`;

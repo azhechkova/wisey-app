@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useEffect, RefObject } from 'react';
 import Hls from 'hls.js';
 
 interface CourseVideoProps
@@ -6,18 +6,19 @@ interface CourseVideoProps
   src?: string;
   playOnHover?: boolean;
   currentTime?: number;
+  videoRef: RefObject<HTMLVideoElement>;
 }
 
 const CourseVideo = ({
   src,
   playOnHover,
   currentTime,
+  videoRef,
   ...props
 }: CourseVideoProps): JSX.Element => {
-  const ref = useRef<HTMLVideoElement | null>(null);
-
   useEffect(() => {
-    const video = ref.current as HTMLMediaElement;
+    if (!videoRef?.current) return;
+    const video = videoRef?.current as HTMLMediaElement;
 
     if (Hls.isSupported() && src) {
       const hls = new Hls();
@@ -26,29 +27,30 @@ const CourseVideo = ({
 
       hls.attachMedia(video);
     }
-  }, [ref, src]);
+  }, [videoRef, src]);
 
   const onPlay = (): void => {
     if (playOnHover) {
-      ref?.current?.play();
+      videoRef?.current?.play();
     }
   };
   const onStop = (): void => {
     if (playOnHover) {
-      ref?.current?.pause();
+      videoRef?.current?.pause();
     }
   };
 
   useEffect(() => {
-    if (!currentTime || !ref?.current) {
+    if (!currentTime || !videoRef?.current) {
       return;
     }
-    ref.current.currentTime = currentTime;
-  }, [ref, currentTime]);
+    videoRef.current.currentTime = currentTime;
+  }, [videoRef, currentTime]);
 
   return (
     <video
-      ref={ref}
+      ref={videoRef}
+      src={src}
       onFocus={(): void => {}}
       onBlur={(): void => {}}
       onMouseOver={onPlay}

@@ -30,3 +30,6 @@ npm run start
 3) Eslint, Prettier, Jest
 4) Hls.js
 5) Material UI
+
+## Case
+Genesis Front-end School 2.0. 
