@@ -10,11 +10,11 @@ import {
 import { Link } from 'react-router-dom';
 import SchoolIcon from '@mui/icons-material/School';
 import Rating from '@mui/material/Rating';
-import useStyles from './styles';
-import { CourseType } from '../../../../types';
+import { CourseType } from '~/types';
 
-import Tag from '../../Atoms/Tag';
-import CourseVideo from '../../Atoms/CourseVideo';
+import Tag from '~/components/UI/Atoms/Tag';
+import CourseVideo from '~/components/UI/Atoms/CourseVideo';
+import useStyles from './styles';
 
 interface CourseProps {
   course: CourseType;

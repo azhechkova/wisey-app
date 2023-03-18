@@ -12,7 +12,7 @@ const useCourses = <T>(): TApiResponse<T[]> => {
       setLoading(true);
       const { data: coursesData } = await getCourses();
 
-      setData(coursesData.courses);
+      setData(coursesData.courses as T[]);
     } catch (e: unknown) {
       setError(e);
     } finally {

@@ -2,11 +2,11 @@ import React from 'react';
 
 import { Box, Typography } from '@mui/material';
 
+import { LessonType } from '~/types';
+import CourseVideo from '~/components/UI/Atoms/CourseVideo';
+import { LESSON_STATUS } from '~/constants';
+import LockedVideo from '~/components/UI/Atoms/LockedVideo';
 import useStyles from './styles';
-import { LessonType } from '../../../../types';
-import CourseVideo from '../../Atoms/CourseVideo';
-import { LESSON_STATUS } from '../../../../constants';
-import LockedVideo from '../../Atoms/LockedVideo';
 
 interface LessonProps {
   lesson: LessonType | null;

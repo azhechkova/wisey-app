@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useState } from 'react';
-import { getCourse } from '../api/services/courses';
+import { getCourse } from '~/api/services/courses';
 import { ErrorType, TApiResponse } from '../types';
 
 const useCourse = <T>(id?: string): TApiResponse<T> => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<ErrorType>(null);
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<T | null>(null);
 
   const fetchCourse = useCallback(async (): Promise<void> => {
     try {
@@ -13,7 +13,7 @@ const useCourse = <T>(id?: string): TApiResponse<T> => {
       setLoading(true);
       const { data: courseData } = await getCourse(id);
 
-      setData(courseData);
+      setData(courseData as T);
     } catch (e: unknown) {
       setError(e);
     } finally {

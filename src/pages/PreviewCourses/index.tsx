@@ -1,12 +1,12 @@
 import React from 'react';
 import { Typography } from '@mui/material';
 
-import useStyles from './styles';
-import { CourseList, Loading } from '../../components';
-import MainLayout from '../../layouts/MainLayout';
+import { CourseList, Loading } from '~/components';
+import MainLayout from '~/layouts/MainLayout';
 
-import { CourseType } from '../../types';
-import useCourses from '../../hooks/useCourses';
+import { CourseType } from '~/types';
+import useCourses from '~/hooks/useCourses';
+import useStyles from './styles';
 
 const PreviewCourses = (): JSX.Element => {
   const { classes } = useStyles();
