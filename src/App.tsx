@@ -1,10 +1,11 @@
 import { CssBaseline } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import React from 'react';
+import { Provider } from 'react-redux';
 import { RouterProvider } from 'react-router-dom';
-import MainLayout from './layouts/MainLayout';
 
 import router from './router';
+import store from './store';
 import theme from './theme';
 
 const App = (): JSX.Element => {
@@ -12,9 +13,9 @@ const App = (): JSX.Element => {
     <>
       <CssBaseline />
       <ThemeProvider theme={theme}>
-        <MainLayout>
+        <Provider store={store}>
           <RouterProvider router={router} />
-        </MainLayout>
+        </Provider>
       </ThemeProvider>
     </>
   );

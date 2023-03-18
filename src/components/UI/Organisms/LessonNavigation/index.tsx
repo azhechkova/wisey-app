@@ -3,24 +3,34 @@ import { Box, Typography, ListItem, List } from '@mui/material';
 import { LessonType } from '~/types';
 import LessonPreview from '~/components/UI/Molecules/LessonPreview';
 
+import { useAppSelector } from '~/store';
+import { getActiveLesson, getVideoProgress } from '~/store/utils';
 import useStyles from './styles';
 
 interface LessonNavigationProps {
   lessons: LessonType[];
   onLessonChange: (lessonId: string) => void;
-  activeLesson?: string | null;
 }
 
 const LessonNavigation = ({
   lessons,
   onLessonChange,
-  activeLesson,
 }: LessonNavigationProps): JSX.Element => {
   const { classes } = useStyles();
+  const activeLesson = useAppSelector(getActiveLesson);
+  const videoProgress = useAppSelector(getVideoProgress);
 
   const sortedLessons = useMemo(() => {
     return lessons.sort((a, b) => a.order - b.order);
   }, [lessons]);
+
+  const getIsFinished = (lessonId: string): boolean => {
+    const videoObj = videoProgress?.find(video => video.videoId === lessonId);
+
+    if (!videoObj) return false;
+
+    return videoObj.isFinished;
+  };
 
   return (
     <Box component="aside" className={classes.root}>
@@ -31,7 +41,10 @@ const LessonNavigation = ({
         {sortedLessons.map(lesson => (
           <ListItem key={lesson.id}>
             <LessonPreview
-              isActive={activeLesson === lesson.id}
+              state={{
+                isActive: activeLesson === lesson.id,
+                isFinished: getIsFinished(lesson.link),
+              }}
               lesson={lesson}
               onLessonChange={onLessonChange}
             />

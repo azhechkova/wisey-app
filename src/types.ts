@@ -41,3 +41,9 @@ export type TApiResponse<T> = {
   error: ErrorType;
   data: T | null;
 };
+
+export type TrackVideoType = {
+  videoId: string;
+  progress: number;
+  isFinished: boolean;
+};

@@ -1,34 +1,28 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 
 import { Box } from '@mui/material';
-import { Slideshow, LockOutlined } from '@mui/icons-material';
+import { Slideshow, LockOutlined, Check } from '@mui/icons-material';
 import Typography from '@mui/material/Typography';
 import { LessonType } from '~/types';
 import Duration from '~/components/UI/Atoms/Duration';
 import { LESSON_STATUS } from '~/constants';
 
-import { getVideoProgress } from '~/utils/trackVideoProgress';
 import useStyles from './styles';
 
 interface LessonPreviewProps {
   lesson: LessonType;
-  isActive?: boolean;
   onLessonChange: (lessonId: string) => void;
+  state: {
+    isActive?: boolean;
+    isFinished?: boolean;
+  };
 }
 
 const LessonPreview = ({
   lesson,
   onLessonChange,
-  isActive,
+  state: { isFinished, isActive },
 }: LessonPreviewProps): JSX.Element => {
-  const videoSrc = lesson.link;
-
-  const videoProgress = useMemo(() => {
-    return getVideoProgress(videoSrc || '');
-  }, [videoSrc]);
-  const { isFinished } = videoProgress;
-
-  console.log(videoProgress);
   const styleProps = {
     isLocked: lesson?.status === LESSON_STATUS.locked,
     isActive,
@@ -64,6 +58,7 @@ const LessonPreview = ({
         </Typography>
         <Duration duration={lesson.duration} />
       </Box>
+      {isFinished && <Check className={classes.checkIcon} />}
     </button>
   );
 };

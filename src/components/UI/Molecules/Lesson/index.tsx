@@ -1,4 +1,4 @@
-import React, { SyntheticEvent, useMemo } from 'react';
+import React, { SyntheticEvent } from 'react';
 
 import { Box, Typography } from '@mui/material';
 
@@ -6,6 +6,8 @@ import { LessonType } from '~/types';
 import CourseVideo from '~/components/UI/Atoms/CourseVideo';
 import { LESSON_STATUS } from '~/constants';
 import LockedVideo from '~/components/UI/Atoms/LockedVideo';
+import { useAppDispatch } from '~/store';
+import { updateVideoProgress } from '~/store/reducers/app';
 import {
   trackVideoProgress,
   getVideoProgress,
@@ -19,15 +21,14 @@ interface LessonProps {
 
 const Lesson = ({ lesson, previewVideo }: LessonProps): JSX.Element => {
   const { classes } = useStyles();
+  const dispatch = useAppDispatch();
 
   const videoSrc = lesson ? lesson?.link : previewVideo;
 
-  const videoProgress = useMemo(() => {
-    return getVideoProgress(videoSrc || '');
-  }, [videoSrc]);
+  const videoProgress = getVideoProgress(videoSrc || '');
 
-  const onProgress = (event: SyntheticEvent<HTMLVideoElement>): void => {
-    if (videoProgress.isFinished) return;
+  const onTimeUpdate = (event: SyntheticEvent<HTMLVideoElement>): void => {
+    if (videoProgress?.isFinished) return;
     const target = event.target as HTMLVideoElement;
     const progress = target.currentTime;
     const isFinished = Math.round(progress) >= lesson.duration;
@@ -38,6 +39,7 @@ const Lesson = ({ lesson, previewVideo }: LessonProps): JSX.Element => {
       isFinished,
     };
 
+    dispatch(updateVideoProgress(progressItem));
     trackVideoProgress(progressItem);
   };
 
@@ -51,10 +53,10 @@ const Lesson = ({ lesson, previewVideo }: LessonProps): JSX.Element => {
           <LockedVideo />
         ) : (
           <CourseVideo
-            onProgress={onProgress}
+            onTimeUpdate={onTimeUpdate}
             controls
             src={videoSrc}
-            currentTime={videoProgress.progress}
+            currentTime={videoProgress?.progress || 0}
             className={classes.video}
           />
         )}

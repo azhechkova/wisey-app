@@ -1,10 +1,5 @@
-import { VIDEOS_STORAGE } from '../constants';
-
-export type TrackVideoType = {
-  videoId: string;
-  progress: number;
-  isFinished: boolean;
-};
+import { VIDEOS_STORAGE } from '~/constants';
+import { TrackVideoType } from '~/types';
 
 export const trackVideoProgress = (trackVideo: TrackVideoType): void => {
   const videos = localStorage.getItem(VIDEOS_STORAGE);
