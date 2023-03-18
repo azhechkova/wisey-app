@@ -5,11 +5,13 @@ interface CourseVideoProps
   extends React.VideoHTMLAttributes<HTMLVideoElement | HTMLMediaElement> {
   src?: string;
   playOnHover?: boolean;
+  currentTime?: number;
 }
 
 const CourseVideo = ({
   src,
   playOnHover,
+  currentTime,
   ...props
 }: CourseVideoProps): JSX.Element => {
   const ref = useRef<HTMLVideoElement | null>(null);
@@ -36,6 +38,13 @@ const CourseVideo = ({
       ref?.current?.pause();
     }
   };
+
+  useEffect(() => {
+    if (!currentTime || !ref?.current) {
+      return;
+    }
+    ref.current.currentTime = currentTime;
+  }, [ref, currentTime]);
 
   return (
     <video

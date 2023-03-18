@@ -1,3 +1,7 @@
-import client from './client';
+import privateClient from './private';
+import publicClient from './public';
 
-export default client;
+export default {
+  privateClient,
+  publicClient,
+};

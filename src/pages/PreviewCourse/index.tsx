@@ -69,13 +69,14 @@ const PreviewCourse = (): JSX.Element => {
               onLessonChange={onLessonChange}
             />
             <Box>
-              <Typography className={classes.courseName}>
-                Course: {course.title}
-              </Typography>
-              <Lesson
-                lesson={activeLessonObj}
-                previewVideo={course.meta?.courseVideoPreview?.link}
-              />
+              {activeLessonObj && (
+                <>
+                  <Typography className={classes.courseName}>
+                    Course: {course.title}
+                  </Typography>
+                  <Lesson lesson={activeLessonObj} />
+                </>
+              )}
             </Box>
           </Box>
           <Box component="section">

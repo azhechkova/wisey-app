@@ -1,10 +1,10 @@
 import { AxiosResponse } from 'axios';
-import client from '../client';
+import privateClient from '../private';
 
 export const getCourses = (): Promise<AxiosResponse> => {
-  return client.get('/core/preview-courses');
+  return privateClient.get('/core/preview-courses');
 };
 
 export const getCourse = (id: string): Promise<AxiosResponse> => {
-  return client.get(`/core/preview-courses/${id}`);
+  return privateClient.get(`/core/preview-courses/${id}`);
 };

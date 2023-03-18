@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SyntheticEvent, useMemo } from 'react';
 
 import { Box, Typography } from '@mui/material';
 
@@ -7,34 +7,58 @@ import { LessonType } from '../../../../types';
 import CourseVideo from '../../Atoms/CourseVideo';
 import { LESSON_STATUS } from '../../../../constants';
 import LockedVideo from '../../Atoms/LockedVideo';
+import {
+  trackVideoProgress,
+  getVideoProgress,
+} from '../../../../utils/trackVideoProgress';
 
 interface LessonProps {
-  lesson: LessonType | null;
+  lesson: LessonType;
   previewVideo?: string;
 }
 
 const Lesson = ({ lesson, previewVideo }: LessonProps): JSX.Element => {
   const { classes } = useStyles();
 
-  return lesson ? (
+  const videoSrc = lesson ? lesson?.link : previewVideo;
+
+  const videoProgress = useMemo(() => {
+    return getVideoProgress(videoSrc || '');
+  }, [videoSrc]);
+
+  const onProgress = (event: SyntheticEvent<HTMLVideoElement>): void => {
+    if (videoProgress.isFinished) return;
+    const target = event.target as HTMLVideoElement;
+    const progress = target.currentTime;
+    const isFinished = Math.round(progress) >= lesson.duration;
+
+    const progressItem = {
+      videoId: videoSrc || '',
+      progress,
+      isFinished,
+    };
+
+    trackVideoProgress(progressItem);
+  };
+
+  return (
     <Box>
       <Typography component="h1" variant="h5" marginBottom={2}>
-        {lesson.title}
+        {lesson ? lesson.title : 'Course preview'}
       </Typography>
       <Box className={classes.videoWrap}>
-        {lesson.status === LESSON_STATUS.locked ? (
+        {lesson?.status === LESSON_STATUS.locked ? (
           <LockedVideo />
         ) : (
-          <CourseVideo controls src={lesson?.link} className={classes.video} />
+          <CourseVideo
+            onProgress={onProgress}
+            controls
+            src={videoSrc}
+            currentTime={videoProgress.progress}
+            className={classes.video}
+          />
         )}
       </Box>
-    </Box>
-  ) : (
-    <Box>
-      <Typography component="h1" variant="h5" marginBottom={2}>
-        Course preview
-      </Typography>
-      <CourseVideo controls src={previewVideo} className={classes.video} />
     </Box>
   );
 };
