@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import {
   CardContent,
   Box,
@@ -22,7 +22,7 @@ interface CourseProps {
 
 const Course = ({ course }: CourseProps): JSX.Element => {
   const { classes } = useStyles();
-
+  const ref = useRef<HTMLVideoElement | null>(null);
   const imageLink = `${course.previewImageLink}/cover.webp`;
 
   return (
@@ -37,6 +37,7 @@ const Course = ({ course }: CourseProps): JSX.Element => {
           poster={imageLink}
           muted
           playOnHover
+          videoRef={ref}
         />
         <CardContent className={classes.content}>
           <Typography fontWeight={700} variant="h6" component="h2">

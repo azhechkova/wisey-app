@@ -7,7 +7,7 @@ exports[`Course component renders properly 1`] = `
     href="/courses/1"
   >
     <div
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-1kajkk2-MuiPaper-root-MuiCard-root-card"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-orna6v-MuiPaper-root-MuiCard-root-card"
     >
       <video
         class="css-19gdxf7-video"

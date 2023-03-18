@@ -11,3 +11,14 @@ const HOST = process.env.REACT_APP_API_HOST;
 const VERSION = process.env.REACT_APP_API_VERSION;
 
 export const baseURL = `${HOST}/${VERSION}`;
+
+export const SPEED_KEYS = {
+  increase: {
+    code: 'KeyS',
+    label: 'S',
+  },
+  decrease: {
+    code: 'KeyA',
+    label: 'A',
+  },
+};
