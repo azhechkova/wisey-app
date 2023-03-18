@@ -6,15 +6,25 @@ const useStyles = makeStyles()(theme => ({
     color: theme.palette.text.primary,
     height: 'auto',
     width: '100%',
+    '&:hover': {
+      transform: 'scale(1.025)',
+      transition: 'transform ease .5s',
+    },
   },
   card: {
     height: '100%',
     boxShadow:
       'rgba(24, 39, 75, 0.12) 0px 8px 18px -6px, rgba(24, 39, 75, 0.12) 0px 12px 42px -4px',
     borderRadius: '1em',
+    display: 'flex',
+    flexDirection: 'column',
   },
   content: {
     padding: '1em',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    flexGrow: 1,
   },
   list: {
     padding: '0',

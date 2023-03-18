@@ -3,11 +3,11 @@ import React, {
   useCallback,
   useEffect,
   useRef,
-  useState,
   VideoHTMLAttributes,
 } from 'react';
 import { Button, Typography, Box } from '@mui/material';
-import CourseVideo from '~/components/UI/Atoms/CourseVideo';
+import { Launch } from '@mui/icons-material/';
+
 import { useAppDispatch } from '~/store';
 import { updateVideoProgress } from '~/store/reducers/app';
 import {
@@ -15,6 +15,9 @@ import {
   getVideoProgress,
 } from '~/utils/trackVideoProgress';
 import { SPEED_KEYS } from '~/constants';
+
+import Video from '~/components/UI/Atoms/Video';
+
 import useStyles from './styles';
 
 interface LessonVideoProps extends VideoHTMLAttributes<HTMLVideoElement> {
@@ -24,6 +27,7 @@ interface LessonVideoProps extends VideoHTMLAttributes<HTMLVideoElement> {
 
 const MIN_PLAYBACK_RATE = 0.25;
 const MAX_PLAYBACK_RATE = 2;
+
 const LessonVideo = ({
   src,
   duration,
@@ -32,7 +36,6 @@ const LessonVideo = ({
   const { classes } = useStyles();
   const dispatch = useAppDispatch();
   const ref = useRef<HTMLVideoElement | null>(null);
-  const [isPipActive, setIsPipActive] = useState(false);
 
   const videoProgress = getVideoProgress(src || '');
 
@@ -59,10 +62,8 @@ const LessonVideo = ({
 
     if (video !== document.pictureInPictureElement) {
       await video.requestPictureInPicture();
-      setIsPipActive(true);
     } else {
       await document.exitPictureInPicture();
-      setIsPipActive(false);
     }
   };
 
@@ -115,15 +116,15 @@ const LessonVideo = ({
   return (
     <Box className={classes.root}>
       <Box className={classes.info}>
-        <Button onClick={onPipOpen}>
-          {isPipActive ? 'Close video' : 'Open video in tab'}
+        <Button onClick={onPipOpen} className={classes.button}>
+          <Launch />
         </Button>
         <Typography className={classes.infoText}>
           {SPEED_KEYS.decrease.label} - decrease speed;{' '}
           {SPEED_KEYS.increase.label} - increase speed
         </Typography>
       </Box>
-      <CourseVideo
+      <Video
         onTimeUpdate={onTimeUpdate}
         controls
         src={src}

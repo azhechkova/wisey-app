@@ -7,7 +7,19 @@ const useStyles = makeStyles()(() => ({
     height: '100%',
   },
   videoWrap: {
-    height: '500px',
+    height: '800px',
+    '@media (max-width: 1500px)': {
+      height: '610px',
+    },
+    '@media (max-width: 992px)': {
+      height: '500px',
+    },
+    '@media (max-width: 572px)': {
+      height: '400px',
+    },
+  },
+  title: {
+    marginBottom: '2rem',
   },
 }));
 

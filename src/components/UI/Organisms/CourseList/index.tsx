@@ -1,10 +1,10 @@
-import { Box } from '@mui/material';
 import React, { useState, useMemo } from 'react';
+import { Box, Button } from '@mui/material';
 
-import Button from '@mui/material/Button/Button';
 import { CourseType } from '~/types';
 
 import Course from '~/components/UI/Molecules/Course';
+
 import useStyles from './styles';
 
 interface CourseListProps {
@@ -34,7 +34,11 @@ const CourseList = ({ courses }: CourseListProps): JSX.Element => {
         ))}
       </Box>
       {limit < courses?.length && (
-        <Button className={classes.button} onClick={onShowMore}>
+        <Button
+          className={classes.button}
+          variant="outlined"
+          onClick={onShowMore}
+        >
           Show more
         </Button>
       )}

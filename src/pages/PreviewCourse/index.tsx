@@ -1,19 +1,23 @@
-import { Box, Button, Typography } from '@mui/material';
 import React, { useEffect, useMemo } from 'react';
-import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
-import ArrowBackIcon from '@mui/icons-material/ArrowBackIos';
 import { useDispatch } from 'react-redux';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
+import { Box, Button, Typography, List, ListItem } from '@mui/material';
+import { ArrowBack } from '@mui/icons-material';
+import { AxiosError } from 'axios';
+
 import { setActiveLesson } from '~/store/reducers/app';
+import useCourse from '~/hooks/useCourse';
+import { CourseType } from '~/types';
+
+import { Loading, LessonNavigation, Lesson, Error } from '~/components';
+import MainLayout from '~/layouts/MainLayout';
+
 import useStyles from './styles';
-import { Loading, LessonNavigation } from '../../components';
-import { CourseType } from '../../types';
-import Lesson from '../../components/UI/Molecules/Lesson';
-import useCourse from '../../hooks/useCourse';
 
 const PreviewCourse = (): JSX.Element => {
   const [searchParams, setSearchParams] = useSearchParams();
   const { id } = useParams();
-  const { data, loading } = useCourse<CourseType>(id);
+  const { data, loading, error } = useCourse<CourseType>(id);
   const dispatch = useDispatch();
 
   const activeLesson = useMemo(
@@ -57,19 +61,29 @@ const PreviewCourse = (): JSX.Element => {
     return <Loading />;
   }
 
+  if (error) {
+    const typedError = error as Error | AxiosError | null;
+
+    return <Error message={typedError?.message || ''} />;
+  }
+
   return (
-    <Box component="main" className={classes.root}>
-      <Button onClick={onBack}>
-        <ArrowBackIcon />
-        Back
-      </Button>
+    <MainLayout>
+      <Box component="header" className={classes.header}>
+        {data && (
+          <LessonNavigation
+            lessons={data.lessons}
+            onLessonChange={onLessonChange}
+          />
+        )}
+        <Button onClick={onBack}>
+          <ArrowBack />
+          Back
+        </Button>
+      </Box>
       {data && (
         <>
-          <Box className={classes.content} component="section">
-            <LessonNavigation
-              lessons={data.lessons}
-              onLessonChange={onLessonChange}
-            />
+          <Box component="section">
             <Box>
               {activeLessonObj && (
                 <>
@@ -92,10 +106,32 @@ const PreviewCourse = (): JSX.Element => {
               Course description
             </Typography>
             <Typography>{data.description}</Typography>
+            {data?.meta?.skills && (
+              <>
+                <Typography
+                  marginTop={4}
+                  marginBottom={2}
+                  variant="h5"
+                  component="h3"
+                  fontWeight={600}
+                >
+                  Skills
+                </Typography>
+                <List>
+                  {data?.meta?.skills?.map((skill, i) => (
+                    <ListItem key={skill}>
+                      <Typography>
+                        {i + 1}. {skill}
+                      </Typography>
+                    </ListItem>
+                  ))}
+                </List>
+              </>
+            )}
           </Box>
         </>
       )}
-    </Box>
+    </MainLayout>
   );
 };
 

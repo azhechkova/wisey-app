@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
-import LockRoundedIcon from '@mui/icons-material/LockRounded';
+import { LockRounded } from '@mui/icons-material';
+
 import useStyles from './styles';
 
 const LockedVideo = (): JSX.Element => {
@@ -9,7 +10,7 @@ const LockedVideo = (): JSX.Element => {
   return (
     <Box className={classes.root}>
       <Box className={classes.content}>
-        <LockRoundedIcon className={classes.icon} />
+        <LockRounded className={classes.icon} />
         <Typography className={classes.text}>This video is locked</Typography>
       </Box>
     </Box>

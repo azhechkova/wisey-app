@@ -1,3 +1,12 @@
+type MetaObject = {
+  slug?: string;
+  skills?: string[];
+  courseVideoPreview?: {
+    link?: string;
+    previewImageLink?: string;
+    duration?: number;
+  };
+};
 export type LessonType = {
   id: string;
   title: string;
@@ -7,7 +16,7 @@ export type LessonType = {
   status: 'unlocked' | 'locked';
   link: string;
   previewImageLink: string;
-  meta: object | null;
+  meta?: MetaObject | null;
 };
 
 export type CourseType = {
@@ -23,18 +32,10 @@ export type CourseType = {
   containsLockedLessons: boolean;
   previewImageLink: string;
   rating: number;
-  meta?: {
-    slug?: string;
-    skills?: string[];
-    courseVideoPreview?: {
-      link?: string;
-      previewImageLink?: string;
-      duration?: number;
-    };
-  } | null;
+  meta?: MetaObject | null;
 };
 
-export type ErrorType = unknown | null | Error;
+export type ErrorType = Error | unknown | null;
 
 export type TApiResponse<T> = {
   loading: boolean;

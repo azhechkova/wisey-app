@@ -4,13 +4,14 @@ import { Box, Typography } from '@mui/material';
 
 import { LessonType } from '~/types';
 import { LESSON_STATUS } from '~/constants';
+
 import LockedVideo from '~/components/UI/Atoms/LockedVideo';
 
 import useStyles from './styles';
 import LessonVideo from '../LessonVideo';
 
 interface LessonProps {
-  lesson: LessonType;
+  lesson?: LessonType;
   previewVideo?: string;
 }
 
@@ -21,14 +22,14 @@ const Lesson = ({ lesson, previewVideo }: LessonProps): JSX.Element => {
 
   return (
     <Box>
-      <Typography component="h1" variant="h5" marginBottom={2}>
+      <Typography component="h1" className={classes.title} variant="h5">
         {lesson ? lesson.title : 'Course preview'}
       </Typography>
       <Box className={classes.videoWrap}>
         {lesson?.status === LESSON_STATUS.locked ? (
           <LockedVideo />
         ) : (
-          <LessonVideo src={videoSrc} duration={lesson.duration} />
+          <LessonVideo src={videoSrc} duration={lesson?.duration || 0} />
         )}
       </Box>
     </Box>

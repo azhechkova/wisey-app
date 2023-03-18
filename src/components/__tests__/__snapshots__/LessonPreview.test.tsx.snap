@@ -1,0 +1,177 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LessonPreview component should render the Check icon when the lesson is finished 1`] = `
+<div>
+  <button
+    aria-label="lesson button"
+    class="css-zjoe5b-root"
+    type="button"
+  >
+    <div
+      class="MuiBox-root css-1rl4y9l-icon"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        data-testid="SlideshowIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M10 8v8l5-4-5-4zm9-5H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"
+        />
+      </svg>
+    </div>
+    <div
+      class="MuiBox-root css-1ur0ipg-info"
+    >
+      <h4
+        class="MuiTypography-root MuiTypography-subtitle1 css-1sdlpag-MuiTypography-root-title"
+      >
+        Test Lesson
+      </h4>
+      <div
+        class="MuiBox-root css-vot3lh-root"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-5w6cp7-MuiSvgIcon-root-icon"
+          data-testid="WatchLaterIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm4.2 14.2L11 13V7h1.5v5.2l4.5 2.7-.8 1.3z"
+          />
+        </svg>
+        <p
+          class="MuiTypography-root MuiTypography-body1 css-1djztph-MuiTypography-root-text"
+        >
+          01:00 min
+        </p>
+      </div>
+    </div>
+    <svg
+      aria-hidden="true"
+      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-8253z7-MuiSvgIcon-root-checkIcon"
+      data-testid="CheckIcon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`LessonPreview component should render the LockOutlined icon when the lesson is locked 1`] = `
+<div>
+  <button
+    aria-label="lesson button"
+    class="css-bsistv-root"
+    type="button"
+  >
+    <div
+      class="MuiBox-root css-1rl4y9l-icon"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        data-testid="LockOutlinedIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"
+        />
+      </svg>
+    </div>
+    <div
+      class="MuiBox-root css-1ur0ipg-info"
+    >
+      <h4
+        class="MuiTypography-root MuiTypography-subtitle1 css-1sdlpag-MuiTypography-root-title"
+      >
+        Locked Lesson
+      </h4>
+      <div
+        class="MuiBox-root css-vot3lh-root"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-5w6cp7-MuiSvgIcon-root-icon"
+          data-testid="WatchLaterIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm4.2 14.2L11 13V7h1.5v5.2l4.5 2.7-.8 1.3z"
+          />
+        </svg>
+        <p
+          class="MuiTypography-root MuiTypography-body1 css-1djztph-MuiTypography-root-text"
+        >
+          00:30 min
+        </p>
+      </div>
+    </div>
+  </button>
+</div>
+`;
+
+exports[`LessonPreview component should render the Slideshow icon when the lesson is unlocked 1`] = `
+<div>
+  <button
+    aria-label="lesson button"
+    class="css-2vvkyg-root"
+    type="button"
+  >
+    <div
+      class="MuiBox-root css-1rl4y9l-icon"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        data-testid="SlideshowIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M10 8v8l5-4-5-4zm9-5H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"
+        />
+      </svg>
+    </div>
+    <div
+      class="MuiBox-root css-1ur0ipg-info"
+    >
+      <h4
+        class="MuiTypography-root MuiTypography-subtitle1 css-1sdlpag-MuiTypography-root-title"
+      >
+        Test Lesson
+      </h4>
+      <div
+        class="MuiBox-root css-vot3lh-root"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-5w6cp7-MuiSvgIcon-root-icon"
+          data-testid="WatchLaterIcon"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm4.2 14.2L11 13V7h1.5v5.2l4.5 2.7-.8 1.3z"
+          />
+        </svg>
+        <p
+          class="MuiTypography-root MuiTypography-body1 css-1djztph-MuiTypography-root-text"
+        >
+          01:00 min
+        </p>
+      </div>
+    </div>
+  </button>
+</div>
+`;
