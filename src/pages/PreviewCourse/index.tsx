@@ -1,7 +1,9 @@
 import { Box, Button, Typography } from '@mui/material';
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBackIos';
+import { useDispatch } from 'react-redux';
+import { setActiveLesson } from '~/store/reducers/app';
 import useStyles from './styles';
 import { Loading, LessonNavigation } from '../../components';
 import { CourseType } from '../../types';
@@ -12,14 +14,18 @@ const PreviewCourse = (): JSX.Element => {
   const [searchParams, setSearchParams] = useSearchParams();
   const { id } = useParams();
   const { data, loading } = useCourse<CourseType>(id);
+  const dispatch = useDispatch();
 
-  const activeLesson = searchParams.get('lesson');
+  const activeLesson = useMemo(
+    () => searchParams.get('lesson') || data?.lessons?.[0]?.id,
+    [searchParams, data],
+  );
 
   const activeLessonObj = useMemo(() => {
     if (!data) return null;
     const lesson = data.lessons?.find(item => item.id === activeLesson);
 
-    if (!lesson) return null;
+    if (!lesson) return data?.lessons?.[0];
 
     return lesson;
   }, [data, activeLesson]);
@@ -36,6 +42,17 @@ const PreviewCourse = (): JSX.Element => {
     setSearchParams({ lesson: lessonId }, { replace: true });
   };
 
+  useEffect(() => {
+    if (!activeLesson) return;
+    dispatch(setActiveLesson(activeLesson));
+  }, [activeLesson, dispatch]);
+
+  useEffect(() => {
+    return () => {
+      dispatch(setActiveLesson(''));
+    };
+  }, [dispatch]);
+
   if (loading) {
     return <Loading />;
   }
@@ -50,18 +67,18 @@ const PreviewCourse = (): JSX.Element => {
         <>
           <Box className={classes.content} component="section">
             <LessonNavigation
-              activeLesson={activeLesson}
               lessons={data.lessons}
               onLessonChange={onLessonChange}
             />
             <Box>
-              <Typography className={classes.courseName}>
-                Course: {data.title}
-              </Typography>
-              <Lesson
-                lesson={activeLessonObj}
-                previewVideo={data.meta?.courseVideoPreview?.link}
-              />
+              {activeLessonObj && (
+                <>
+                  <Typography className={classes.courseName}>
+                    Course: {data.title}
+                  </Typography>
+                  <Lesson lesson={activeLessonObj} />
+                </>
+              )}
             </Box>
           </Box>
           <Box component="section">

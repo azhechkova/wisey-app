@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Box } from '@mui/material';
-import { Slideshow, LockOutlined } from '@mui/icons-material';
+import { Slideshow, LockOutlined, Check } from '@mui/icons-material';
 import Typography from '@mui/material/Typography';
 import { LessonType } from '~/types';
 import Duration from '~/components/UI/Atoms/Duration';
@@ -11,18 +11,22 @@ import useStyles from './styles';
 
 interface LessonPreviewProps {
   lesson: LessonType;
-  isActive?: boolean;
   onLessonChange: (lessonId: string) => void;
+  state: {
+    isActive?: boolean;
+    isFinished?: boolean;
+  };
 }
 
 const LessonPreview = ({
   lesson,
   onLessonChange,
-  isActive,
+  state: { isFinished, isActive },
 }: LessonPreviewProps): JSX.Element => {
   const styleProps = {
     isLocked: lesson?.status === LESSON_STATUS.locked,
     isActive,
+    isFinished,
   };
   const { classes } = useStyles(styleProps);
 
@@ -54,6 +58,7 @@ const LessonPreview = ({
         </Typography>
         <Duration duration={lesson.duration} />
       </Box>
+      {isFinished && <Check className={classes.checkIcon} />}
     </button>
   );
 };

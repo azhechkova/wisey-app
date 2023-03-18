@@ -1,8 +1,8 @@
 import { AxiosResponse } from 'axios';
-import client from '../client';
+import publicClient from '../public';
 
 const getToken = (): Promise<AxiosResponse> => {
-  return client.get('/auth/anonymous?platform=subscriptions');
+  return publicClient.get('/auth/anonymous?platform=subscriptions');
 };
 
 export default getToken;

@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { makeStyles } from 'tss-react/mui';
 
 const useStyles = makeStyles()(() => ({
