@@ -10,7 +10,7 @@ const useStyles = makeStyles<StyleProps>()(
   (theme, { isLocked, isActive, isFinished }) => ({
     root: {
       padding: '0.75rem 1rem',
-      paddingRight: isFinished ? '2rem' : '1rem',
+      paddingRight: isFinished ? '2.5rem' : '1rem',
       borderRadius: '0.75rem',
       display: 'flex',
       position: 'relative',
@@ -22,6 +22,13 @@ const useStyles = makeStyles<StyleProps>()(
       backgroundColor: isActive ? theme.palette.primary.light : '#fff',
       cursor: 'pointer',
       opacity: isLocked ? '0.5' : 1,
+      '&:hover': {
+        background: isLocked
+          ? 'transparent'
+          : isActive
+          ? theme.palette.primary.light
+          : 'rgb(229 229 229)',
+      },
     },
     info: {
       textAlign: 'left',

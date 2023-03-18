@@ -25,6 +25,9 @@ const useStyles = makeStyles()(() => ({
   infoText: {
     padding: '6px 8px',
   },
+  button: {
+    minWidth: 0,
+  },
 }));
 
 export default useStyles;

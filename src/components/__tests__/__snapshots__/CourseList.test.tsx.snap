@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CourseList component should render the correct number of courses 1`] = `
+<div>
+  <div
+    class="MuiBox-root css-0"
+  >
+    <div
+      class="MuiBox-root css-1r1jkbv-list"
+    />
+    <button
+      class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium css-j6m4ra-MuiButtonBase-root-MuiButton-root-button"
+      tabindex="0"
+      type="button"
+    >
+      Show more
+      <span
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
+    </button>
+  </div>
+</div>
+`;

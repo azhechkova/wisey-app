@@ -1,7 +1,7 @@
 import React, { useEffect, RefObject } from 'react';
 import Hls from 'hls.js';
 
-interface CourseVideoProps
+interface VideoProps
   extends React.VideoHTMLAttributes<HTMLVideoElement | HTMLMediaElement> {
   src?: string;
   playOnHover?: boolean;
@@ -9,13 +9,13 @@ interface CourseVideoProps
   videoRef: RefObject<HTMLVideoElement>;
 }
 
-const CourseVideo = ({
+const Video = ({
   src,
   playOnHover,
   currentTime,
   videoRef,
   ...props
-}: CourseVideoProps): JSX.Element => {
+}: VideoProps): JSX.Element => {
   useEffect(() => {
     if (!videoRef?.current) return;
     const video = videoRef?.current as HTMLMediaElement;
@@ -62,4 +62,4 @@ const CourseVideo = ({
   );
 };
 
-export default CourseVideo;
+export default Video;

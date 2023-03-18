@@ -6,14 +6,16 @@ import {
   Card,
   List,
   ListItem,
+  Rating,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
-import SchoolIcon from '@mui/icons-material/School';
-import Rating from '@mui/material/Rating';
+import { School } from '@mui/icons-material';
+
 import { CourseType } from '~/types';
 
 import Tag from '~/components/UI/Atoms/Tag';
-import CourseVideo from '~/components/UI/Atoms/CourseVideo';
+import CourseVideo from '~/components/UI/Atoms/Video';
+
 import useStyles from './styles';
 
 interface CourseProps {
@@ -40,30 +42,34 @@ const Course = ({ course }: CourseProps): JSX.Element => {
           videoRef={ref}
         />
         <CardContent className={classes.content}>
-          <Typography fontWeight={700} variant="h6" component="h2">
-            {course.title}
-          </Typography>
-          <Typography
-            className={classes.description}
-            variant="body2"
-            color="text.primary"
-          >
-            {course.description}
-          </Typography>
-          <Box className={classes.info}>
-            <Rating value={course.rating} />
-            <Typography className={classes.lessonsCount}>
-              <SchoolIcon /> {course.lessonsCount}
+          <Box>
+            <Typography fontWeight={700} variant="h6" component="h2">
+              {course.title}
+            </Typography>
+            <Typography
+              className={classes.description}
+              variant="body2"
+              color="text.primary"
+            >
+              {course.description}
             </Typography>
           </Box>
-          <List className={classes.list}>
-            {course.meta?.skills?.length &&
-              course.meta.skills.map(tag => (
-                <ListItem key={tag} className={classes.listItem}>
-                  <Tag label={tag} />
-                </ListItem>
-              ))}
-          </List>
+          <Box>
+            <Box className={classes.info}>
+              <Rating value={course.rating} />
+              <Typography className={classes.lessonsCount}>
+                <School /> {course.lessonsCount}
+              </Typography>
+            </Box>
+            <List className={classes.list}>
+              {course?.tags?.length &&
+                course.tags.map(tag => (
+                  <ListItem key={tag} className={classes.listItem}>
+                    <Tag label={tag} />
+                  </ListItem>
+                ))}
+            </List>
+          </Box>
         </CardContent>
       </Card>
     </Link>

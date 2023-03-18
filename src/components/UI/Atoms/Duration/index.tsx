@@ -1,9 +1,10 @@
 import React from 'react';
 
 import { Box, Typography } from '@mui/material';
-import WatchLaterIcon from '@mui/icons-material/WatchLater';
+import { WatchLater } from '@mui/icons-material';
 
 import getLessonDuration from '~/utils/getLessonDuration';
+
 import useStyles from './styles';
 
 interface DurationProps {
@@ -16,7 +17,7 @@ const Duration = ({ duration }: DurationProps): JSX.Element => {
 
   return (
     <Box className={classes.root}>
-      <WatchLaterIcon className={classes.icon} />
+      <WatchLater className={classes.icon} />
       <Typography className={classes.text}>{formatDuration}</Typography>
     </Box>
   );

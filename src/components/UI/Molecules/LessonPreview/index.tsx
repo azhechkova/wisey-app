@@ -1,11 +1,11 @@
 import React from 'react';
-
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { Slideshow, LockOutlined, Check } from '@mui/icons-material';
-import Typography from '@mui/material/Typography';
+
 import { LessonType } from '~/types';
-import Duration from '~/components/UI/Atoms/Duration';
 import { LESSON_STATUS } from '~/constants';
+
+import Duration from '~/components/UI/Atoms/Duration';
 
 import useStyles from './styles';
 

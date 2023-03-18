@@ -1,5 +1,6 @@
-import { Box, CircularProgress } from '@mui/material';
 import React from 'react';
+import { Box, CircularProgress } from '@mui/material';
+
 import useStyles from './styles';
 
 const Loading = (): JSX.Element => {

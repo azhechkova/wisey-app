@@ -38,6 +38,7 @@
       "import"
     ],
     "rules": {
+      "no-nested-ternary": "off",
       "prettier/prettier": "error",
       "@typescript-eslint/explicit-function-return-type": "error",
       "@typescript-eslint/member-ordering": "error",

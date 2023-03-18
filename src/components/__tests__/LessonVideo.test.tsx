@@ -50,7 +50,7 @@ describe('LessonVideo', () => {
 
     const videoElement = container.querySelector('#video') as HTMLVideoElement;
 
-    fireEvent.keyPress(window, { code: 'KeyS' }); // increase key
+    fireEvent.keyPress(window, { code: 'KeyS' });
     expect(videoElement).toBeInTheDocument();
 
     expect(videoElement!.playbackRate).toBe(1.25);
