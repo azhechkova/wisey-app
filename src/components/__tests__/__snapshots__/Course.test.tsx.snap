@@ -2,70 +2,242 @@
 
 exports[`Course component renders properly 1`] = `
 <div>
-  <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-111azgf-MuiPaper-root-MuiCard-root-card"
+  <a
+    class="css-13ve26i-root"
+    href="/courses/1"
   >
-    <video
-      height="198"
-      poster="/cover.webp"
-      width="352"
-    >
-      <source
-        type="application/x-mpegURL"
-      />
-    </video>
     <div
-      class="MuiCardContent-root css-mman5-MuiCardContent-root-content"
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-1kajkk2-MuiPaper-root-MuiCard-root-card"
     >
-      <h2
-        class="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom css-h93ljk-MuiTypography-root"
+      <video
+        class="css-19gdxf7-video"
+        height="198"
+        poster="/cover.webp"
+        width="100%"
       >
-        Mock course
-      </h2>
-      <p
-        class="MuiTypography-root MuiTypography-body2 css-1yr8029-MuiTypography-root"
-      >
-        Course description
-      </p>
-      <ul
-        class="MuiList-root MuiList-padding css-h4y409-MuiList-root"
-      >
-        <li
-          class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-ba5xb9-MuiListItem-root-listItem"
-        >
-          Rating: 
-          1
-        </li>
-        <li
-          class="MuiListItem-root MuiListItem-gutters MuiListItem-padding css-ba5xb9-MuiListItem-root-listItem"
-        >
-          Lessons: 
-        </li>
-      </ul>
+        <track
+          kind="captions"
+        />
+      </video>
       <div
-        class="MuiCardActions-root MuiCardActions-spacing css-1t6e9jv-MuiCardActions-root"
+        class="MuiCardContent-root css-mman5-MuiCardContent-root-content"
       >
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall css-11qr2p8-MuiButtonBase-root-MuiButton-root"
-          tabindex="0"
-          type="button"
+        <h2
+          class="MuiTypography-root MuiTypography-h6 css-tjvwag-MuiTypography-root"
         >
-          Learn More
+          Mock course
+        </h2>
+        <p
+          class="MuiTypography-root MuiTypography-body2 css-qosmv4-MuiTypography-root-description"
+        >
+          Course description
+        </p>
+        <div
+          class="MuiBox-root css-xekowy-info"
+        >
           <span
-            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-          />
-        </button>
-      </div>
-      <div
-        class="MuiChip-root MuiChip-filled MuiChip-sizeMedium MuiChip-colorDefault MuiChip-filledDefault css-15d77bz-MuiChip-root-tag"
-      >
-        <span
-          class="MuiChip-label MuiChip-labelMedium css-6od3lo-MuiChip-label"
-        >
-          tag
-        </span>
+            class="MuiRating-root MuiRating-sizeMedium css-iljtu2-MuiRating-root"
+          >
+            <label
+              class="css-dqr9h-MuiRating-label"
+              for=":r1:"
+            >
+              <span
+                class="MuiRating-icon MuiRating-iconFilled css-7qmtgc-MuiRating-icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+                  data-testid="StarIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="MuiRating-visuallyHidden"
+              >
+                1 Star
+              </span>
+            </label>
+            <input
+              checked=""
+              class="MuiRating-visuallyHidden"
+              id=":r1:"
+              name=":r0:"
+              type="radio"
+              value="1"
+            />
+            <label
+              class="css-dqr9h-MuiRating-label"
+              for=":r2:"
+            >
+              <span
+                class="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+                  data-testid="StarBorderIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="MuiRating-visuallyHidden"
+              >
+                2 Stars
+              </span>
+            </label>
+            <input
+              class="MuiRating-visuallyHidden"
+              id=":r2:"
+              name=":r0:"
+              type="radio"
+              value="2"
+            />
+            <label
+              class="css-dqr9h-MuiRating-label"
+              for=":r3:"
+            >
+              <span
+                class="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+                  data-testid="StarBorderIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="MuiRating-visuallyHidden"
+              >
+                3 Stars
+              </span>
+            </label>
+            <input
+              class="MuiRating-visuallyHidden"
+              id=":r3:"
+              name=":r0:"
+              type="radio"
+              value="3"
+            />
+            <label
+              class="css-dqr9h-MuiRating-label"
+              for=":r4:"
+            >
+              <span
+                class="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+                  data-testid="StarBorderIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="MuiRating-visuallyHidden"
+              >
+                4 Stars
+              </span>
+            </label>
+            <input
+              class="MuiRating-visuallyHidden"
+              id=":r4:"
+              name=":r0:"
+              type="radio"
+              value="4"
+            />
+            <label
+              class="css-dqr9h-MuiRating-label"
+              for=":r5:"
+            >
+              <span
+                class="MuiRating-icon MuiRating-iconEmpty css-1c99szj-MuiRating-icon"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+                  data-testid="StarBorderIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+                  />
+                </svg>
+              </span>
+              <span
+                class="MuiRating-visuallyHidden"
+              >
+                5 Stars
+              </span>
+            </label>
+            <input
+              class="MuiRating-visuallyHidden"
+              id=":r5:"
+              name=":r0:"
+              type="radio"
+              value="5"
+            />
+            <label
+              class="MuiRating-label MuiRating-pristine css-dqr9h-MuiRating-label"
+            >
+              <input
+                class="MuiRating-visuallyHidden"
+                id=":r0:-empty"
+                name=":r0:"
+                type="radio"
+                value=""
+              />
+              <span
+                class="MuiRating-visuallyHidden"
+              >
+                Empty
+              </span>
+            </label>
+          </span>
+          <p
+            class="MuiTypography-root MuiTypography-body1 css-1x7faqy-MuiTypography-root-lessonsCount"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="SchoolIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3 1 9l11 6 9-4.91V17h2V9L12 3z"
+              />
+            </svg>
+             
+          </p>
+        </div>
+        <ul
+          class="MuiList-root MuiList-padding css-1su2n90-MuiList-root-list"
+        />
       </div>
     </div>
-  </div>
+  </a>
 </div>
 `;
