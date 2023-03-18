@@ -3,10 +3,11 @@ import React from 'react';
 import { Box } from '@mui/material';
 import { Slideshow, LockOutlined } from '@mui/icons-material';
 import Typography from '@mui/material/Typography';
+import { LessonType } from '~/types';
+import Duration from '~/components/UI/Atoms/Duration';
+import { LESSON_STATUS } from '~/constants';
+
 import useStyles from './styles';
-import { LessonType } from '../../../../types';
-import Duration from '../../Atoms/Duration';
-import { LESSON_STATUS } from '../../../../constants';
 
 interface LessonPreviewProps {
   lesson: LessonType;

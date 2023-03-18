@@ -1,8 +1,9 @@
 import React, { useMemo } from 'react';
 import { Box, Typography, ListItem, List } from '@mui/material';
+import { LessonType } from '~/types';
+import LessonPreview from '~/components/UI/Molecules/LessonPreview';
+
 import useStyles from './styles';
-import { LessonType } from '../../../../types';
-import LessonPreview from '../../Molecules/LessonPreview';
 
 interface LessonNavigationProps {
   lessons: LessonType[];

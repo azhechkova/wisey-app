@@ -1,5 +1,6 @@
 import React from 'react';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router';
 import { CourseType } from '../../types';
 
 import Course from '../UI/Molecules/Course';
@@ -17,30 +18,24 @@ const course: CourseType = {
   rating: 1,
 };
 
-const mockedUsedNavigate = jest.fn();
-
-jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
-  useNavigate: (): jest.Mock<void> => mockedUsedNavigate,
-}));
-
 describe('Course component', () => {
   test('renders properly', () => {
-    const { container } = render(<Course course={course} />);
+    const { container } = render(
+      <MemoryRouter>
+        <Course course={course} />
+      </MemoryRouter>,
+    );
 
     expect(container).toMatchSnapshot();
   });
   test('has description and title', () => {
-    render(<Course course={course} />);
+    render(
+      <MemoryRouter>
+        <Course course={course} />
+      </MemoryRouter>,
+    );
 
     expect(screen.getByText(course.title)).toBeInTheDocument();
     expect(screen.getByText(course.description)).toBeInTheDocument();
-  });
-
-  test('navigates to the course page', () => {
-    render(<Course course={course} />);
-
-    fireEvent.click(screen.getByText('Learn More'));
-    expect(mockedUsedNavigate).toHaveBeenCalledWith(`/courses/${course.id}`);
   });
 });

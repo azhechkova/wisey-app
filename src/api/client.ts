@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { getStorageToken } from '../utils/tokenLocalStorage';
+import { getStorageToken } from '~/utils/tokenLocalStorage';
 
 const HOST = process.env.REACT_APP_API_HOST;
 const VERSION = process.env.REACT_APP_API_VERSION;
