@@ -1,25 +1,18 @@
-import { Typography } from '@mui/material';
 import React from 'react';
+import { Typography } from '@mui/material';
 
-import { useLoaderData } from 'react-router-dom';
+import { CourseList, Loading } from '~/components';
+import MainLayout from '~/layouts/MainLayout';
+
+import { CourseType } from '~/types';
+import useCourses from '~/hooks/useCourses';
 import useStyles from './styles';
-import { CourseList, Loading } from '../../components';
-import MainLayout from '../../layouts/MainLayout';
-
-import { CourseType } from '../../types';
-import { getCourses } from '../../api/services/courses';
-
-export const coursesLoader = async (): Promise<CourseType[]> => {
-  const { data } = await getCourses();
-
-  return data.courses || [];
-};
 
 const PreviewCourses = (): JSX.Element => {
   const { classes } = useStyles();
-  const courses = useLoaderData() as CourseType[];
+  const { data, loading } = useCourses<CourseType>();
 
-  if (!courses) {
+  if (loading) {
     return <Loading />;
   }
 
@@ -28,7 +21,7 @@ const PreviewCourses = (): JSX.Element => {
       <Typography component="h1" variant="h3" className={classes.title}>
         Explore Courses
       </Typography>
-      <CourseList courses={courses as CourseType[]} />
+      <CourseList courses={data as CourseType[]} />
     </MainLayout>
   );
 };

@@ -33,3 +33,11 @@ export type CourseType = {
     };
   } | null;
 };
+
+export type ErrorType = unknown | null | Error;
+
+export type TApiResponse<T> = {
+  loading: boolean;
+  error: ErrorType;
+  data: T | null;
+};

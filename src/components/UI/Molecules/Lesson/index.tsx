@@ -2,15 +2,15 @@ import React, { SyntheticEvent, useMemo } from 'react';
 
 import { Box, Typography } from '@mui/material';
 
-import useStyles from './styles';
-import { LessonType } from '../../../../types';
-import CourseVideo from '../../Atoms/CourseVideo';
-import { LESSON_STATUS } from '../../../../constants';
-import LockedVideo from '../../Atoms/LockedVideo';
+import { LessonType } from '~/types';
+import CourseVideo from '~/components/UI/Atoms/CourseVideo';
+import { LESSON_STATUS } from '~/constants';
+import LockedVideo from '~/components/UI/Atoms/LockedVideo';
 import {
   trackVideoProgress,
   getVideoProgress,
-} from '../../../../utils/trackVideoProgress';
+} from '~/utils/trackVideoProgress';
+import useStyles from './styles';
 
 interface LessonProps {
   lesson: LessonType;

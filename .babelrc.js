@@ -17,6 +17,15 @@ const plugins = [
       },
       'icons',
     ],
+    [
+      'module-resolver',
+      {
+        root: ['./'],
+        alias: {
+          '~': './src/'
+        }
+      }
+    ]
   ];
   
 module.exports = { plugins };

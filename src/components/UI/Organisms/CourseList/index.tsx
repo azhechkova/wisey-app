@@ -2,10 +2,10 @@ import { Box } from '@mui/material';
 import React, { useState, useMemo } from 'react';
 
 import Button from '@mui/material/Button/Button';
-import useStyles from './styles';
-import { CourseType } from '../../../../types';
+import { CourseType } from '~/types';
 
-import Course from '../../Molecules/Course';
+import Course from '~/components/UI/Molecules/Course';
+import useStyles from './styles';
 
 interface CourseListProps {
   courses: CourseType[];

@@ -2,8 +2,9 @@ import React from 'react';
 
 import { Box, Typography } from '@mui/material';
 import WatchLaterIcon from '@mui/icons-material/WatchLater';
+
+import getLessonDuration from '~/utils/getLessonDuration';
 import useStyles from './styles';
-import getLessonDuration from '../../../../utils/getLessonDuration';
 
 interface DurationProps {
   duration: number;
