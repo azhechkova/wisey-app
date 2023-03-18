@@ -9,6 +9,12 @@ Firsly, install dependencies
 npm install
 ```
 
+
+Then, copy contents of .env.local.example to .env.local file
+```bash
+cp .env.local.example .env.local
+```
+
 ## Usage
 
 ```bash
