@@ -1,15 +1,22 @@
 import React from 'react';
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
 import { ErrorBoundary } from '../components';
 
 import PreviewCourse from '../pages/PreviewCourse';
-import PreviewCourses, { coursesLoader } from '../pages/PreviewCourses';
+import PreviewCourses from '../pages/PreviewCourses';
 
 const router = createBrowserRouter([
   {
+    path: '/',
+    element: <Navigate to="courses" />,
+  },
+  {
+    path: '*',
+    element: <Navigate to="courses" />,
+  },
+  {
     path: '/courses',
     element: <PreviewCourses />,
-    loader: coursesLoader,
     ErrorBoundary,
   },
   {
