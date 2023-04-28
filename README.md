@@ -35,11 +35,11 @@ If you're having trouble watching videos, installing the Allow CORS extension mi
  
 
  - On the course view page, the first video from the course is displayed, along with details about the course and a list of lessons. 
-- When clicking on a lesson (if it is not locked), the current video will open, and you can understand which lesson he is watching by the changed background. 
+- When clicking on a lesson (if it is not locked), the current video will be openened, and you can understand which lesson you're watching by the changed background. 
 - The progress of watched videos is saved, so if you go back to the previous video, you can continue watching from where you left off. 
 - The finished videos are marked with a checkmark. If the lesson is locked, the corresponding image and title are shown.
 
-- By clicking on a button with an external link, you can have a video in a picture-in-picture window (the video is displayed on top of the page when clicked. The video will be located in the lower right corner of the page and can be viewed while browsing other pages). 
+- By clicking on a button with an external link, you can have a video opened in a picture-in-picture window (the video is displayed on top of the page when clicked. The video will be located in the lower right corner of the page and can be viewed while browsing other pages). 
 
 Also, you can change the playback speed of the video using the keyboard (A - decrease, S - increase).
 
